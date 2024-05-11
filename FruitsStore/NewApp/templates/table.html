@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
+    <div class="mb-2 border-solid border-gray-300 rounded border shadow-sm w-full">
+        <div class="bg-gray-200 px-2 py-3 border-solid border-gray-200 border-b">
+            <h1>Category Details....</h1>
+        </div>
+    <table style="width:100%;text-align: center">
+        <tr>
+            <th>Category Name</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Price per Kg</th>
+            <th>Image</th>
+        </tr>
+
+        {% for i in data %}
+        <tr>
+            <td>{{i.cat_name}}</td>
+            <td>{{i.cat_quan}}</td>
+            <td>{{i.cat_dec}}</td>
+            <td>{{i.cat_price}}</td>
+            <td>
+                <img src="{{i.images.url}}" width="100px" height="100px">
+            </td>
+
+            <td>
+                <form action="{% url 'edits' dataid=i.id %}">
+                    <button>edit</button>
+                </form>
+            </td>
+            <td>
+                <form action="{% url 'delete' to=i.id %}">
+                    <button>delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
+{% endblock %}

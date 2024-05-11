@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
+    <div class="mb-2 border-solid border-gray-300 rounded border shadow-sm w-full">
+        <div class="bg-gray-200 px-2 py-3 border-solid border-gray-200 border-b">
+            <div>
+    <h1 style="text-align:center">Messages</h1>
+  <table width="100%">
+    <tr style="text-align: center">
+      <th>Name</th>
+      <th>Email</th>
+      <th>Subject</th>
+      <th>Message</th>
+    </tr>
+
+    {% for i in do %}
+    <tr style="text-align: center; ">
+        <td>{{i.c_name}}</td>
+        <td>{{i.c_email}}</td>
+        <td>{{i.c_subject}}</td>
+        <td>{{i.c_message}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+        </div>
+    </div>
+</div>
+
+  </body>
+</html>
+{% endblock %}

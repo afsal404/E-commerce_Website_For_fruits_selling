@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="leading-loose">
+            <form class="max-w-xl m-4 p-10 bg-white rounded shadow-xl" method="post" action="{% url 'editupdate' do=up.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p class="text-gray-800 font-medium">Add Category Here</p>
+                <div class="">
+                    <label class="block text-sm text-gray-00" >Category Name</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"  name="nam" type="text"  placeholder="Category Name" aria-label="Category Name" value="{{up.cate_nam}}">
+                </div>
+                <div class="mt-2">
+                    <label class="block text-sm text-gray-600" >Description</label>
+                    <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"  name="de" type="text"  placeholder="Description" aria-label="Description" value="{{up.cate_de}}">
+                </div>
+<!--                <div class="mt-2">-->
+<!--                    <label class=" block text-sm text-gray-600" >Quantity</label>-->
+<!--                    <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"  name="quan" type="text"  placeholder="quantity" aria-label="Quantity">-->
+<!--                </div><div class="mt-2">&ndash;&gt;-->
+<!--                    <label class="block text-sm text-gray-600" >Price</label>-->
+<!--                    <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"  name="price" type="text"  placeholder="Rate per Kg" aria-label="Price">-->
+<!--                </div>
+<!--                -->
+                <div class="inline-block mt-2 w-1/2 pr-1">
+                    <label class="hidden block text-sm text-gray-600" >image</label>
+                    <img src="{{up.image.url}}" width="100%" height="100%">
+                    <input name="Im" type="file"  placeholder="Add image" >
+                </div>
+<!--                <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">-->
+<!--                    <label class="hidden block text-sm text-gray-600">Zip</label>-->
+<!--                    <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"  name="cus_email" type="text"  placeholder="Zip" aria-label="Email">-->
+<!--                </div>-->
+
+                <div class="mt-4">
+                    <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Update</button>
+                </div>
+<!--                <a class="inline-block right-0 align-baseline font-bold text-sm text-500 hover:text-blue-800" href="login.html">-->
+<!--                    Already have an account ?-->
+<!--                </a>-->
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
